@@ -3,176 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BeSmart English Quiz</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f7f7;
-        }
-        header {
-            background-color: #4b0082;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        header p {
-            margin: 5px 0;
-        }
-        .main-content {
-            padding: 30px;
-            text-align: center;
-        }
-        .main-content h2 {
-            color: #4b0082;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        .categories {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 50px; /* Spacer to fit content in view */
-        }
-        .category {
-            border-radius: 8px;
-            width: 200px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.2s, background-color 0.2s, color 0.2s;
-        }
-        .category a {
-            text-decoration: none;
-            color: white;
-            font-size: 1.2em;
-            font-weight: bold;
-        }
-        .category.level-a1 { background-color: #add8e6; } /* Light Blue */
-        .category.level-a2 { background-color: #90ee90; } /* Light Green */
-        .category.level-b2 { background-color: #ffd700; } /* Gold */
-        .category.level-c1 { background-color: #ffa07a; } /* Light Salmon */
-        .category.level-c2 { background-color: #d8bfd8; } /* Thistle */
-
-        .category:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            filter: brightness(90%);
-        }
-        .category:active {
-            transform: scale(0.98);
-            filter: brightness(80%);
-        }
-        footer {
-            background-color: #4b0082;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            margin-top: 40px;
-        }
-        footer p {
-            margin: 5px 0;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2em;
-            }
-            .main-content h2 {
-                font-size: 1.5em;
-            }
-            .category {
-                width: 150px;
-                padding: 15px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 15px;
-            }
-            header h1 {
-                font-size: 1.8em;
-            }
-            header p {
-                font-size: 0.9em;
-            }
-            .main-content {
-                padding: 15px;
-            }
-            .categories {
-                gap: 10px;
-            }
-            .category {
-                width: 120px;
-                padding: 10px;
-            }
-            .category a {
-                font-size: 1em;
-            }
-            footer {
-                padding: 15px;
-            }
-            footer p {
-                font-size: 0.9em;
-            }
-        }
-    </style>
+    <title>English Quiz Site - BeSmart Ezzahra</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>BeSmart English Quiz</h1>
-        <p>Master English with our level-based quizzes!</p>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="BeSmart Ezzahra Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="levels.html">Levels</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="main-content">
-        <h2>Choose Your Level</h2>
-        <div class="categories">
-            <div class="category level-a1"><a href="/A1-1.html">A1-1</a></div>
-            <div class="category level-a1"><a href="/A1-2.html">A1-2</a></div>
-            <div class="category level-a1"><a href="/A1-3.html">A1-3</a></div>
-            <div class="category level-a1"><a href="/A1-4.html">A1-4</a></div>
-        </div>
-        <div style="height: 50px;"></div>
-        <div class="categories">
-            <div class="category level-a2"><a href="/A2-1.html">A2-1</a></div>
-            <div class="category level-a2"><a href="/A2-2.html">A2-2</a></div>
-            <div class="category level-a2"><a href="/A2-3.html">A2-3</a></div>
-            <div class="category level-a2"><a href="/A2-4.html">A2-4</a></div>
-        </div>
-        <div style="height: 50px;"></div>
-        <div class="categories">
-            <div class="category level-b2"><a href="/B2-1.html">B2-1</a></div>
-            <div class="category level-b2"><a href="/B2-2.html">B2-2</a></div>
-            <div class="category level-b2"><a href="/B2-3.html">B2-3</a></div>
-            <div class="category level-b2"><a href="/B2-4.html">B2-4</a></div>
-        </div>
-        <div style="height: 50px;"></div>
-        <div class="categories">
-            <div class="category level-c1"><a href="/C1-1.html">C1-1</a></div>
-            <div class="category level-c1"><a href="/C1-2.html">C1-2</a></div>
-            <div class="category level-c1"><a href="/C1-3.html">C1-3</a></div>
-            <div class="category level-c1"><a href="/C1-4.html">C1-4</a></div>
-        </div>
-        <div style="height: 50px;"></div>
-        <div class="categories">
-            <div class="category level-c2"><a href="/C2-1.html">C2-1</a></div>
-            <div class="category level-c2"><a href="/C2-2.html">C2-2</a></div>
-            <div class="category level-c2"><a href="/C2-3.html">C2-3</a></div>
-            <div class="category level-c2"><a href="/C2-4.html">C2-4</a></div>
-        </div>
-    </div>
+    <main>
+        <section class="hero">
+            <h1>Welcome to English Quiz Site</h1>
+            <p>Test your English proficiency with our interactive quizzes!</p>
+        </section>
+
+        <section class="level-directory">
+            <h2>Choose Your Level</h2>
+            <div class="level-cards">
+                <div class="card">
+                    <h3>A1-1</h3>
+                    <p>Beginner Level 1</p>
+                    <a href="/A1-1.html">Start Quiz</a>
+                </div>
+                <div class="card">
+                    <h3>A1-2</h3>
+                    <p>Beginner Level 2</p>
+                    <a href="/A1-2.html">Start Quiz</a>
+                </div>
+                <div class="card">
+                    <h3>A1-3</h3>
+                    <p>Beginner Level 3</p>
+                    <a href="/A1-3.html">Start Quiz</a>
+                </div>
+                <div class="card">
+                    <h3>A1-4</h3>
+                    <p>Beginner Level 4</p>
+                    <a href="/A1-4.html">Start Quiz</a>
+                </div>
+                <!-- Add more level cards as needed -->
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>Made by BeSmart Ezzahra</p>
-        <p>Contact: 58, Avenue Habib Bourguiba, Ben Arous, Ezzahra, Tunisia</p>
-        <p>Phone: +216 99 739 144</p>
+        <div class="contact-info">
+            <p>BeSmart Ezzahra</p>
+            <p>58, avenue Habib Bourguiba. Ben Arous. Ezzahra. Tunisia</p>
+            <p>Phone: +216 99 739 144</p>
+        </div>
+        <div class="legal">
+            <p>&copy; 2023 BeSmart Ezzahra. All rights reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
