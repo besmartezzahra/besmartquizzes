@@ -1,189 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Simple Present Quiz 1 - BeSmart English</title>
-    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
-    <!-- Same styles as before -->
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+import React, { useState } from 'react';
+import { Card, CardContent } from '@/components/ui/card';
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+const SimplePresent = () => {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const [showScore, setShowScore] = useState(false);
+  const [userAnswers, setUserAnswers] = useState([]);
 
-        header {
-            background-color: #4b0082;
-            color: white;
-            padding: 1rem;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+  const questions = [
+    {
+      questionText: "When do we use the Simple Present tense?",
+      options: [
+        "To talk about temporary actions",
+        "To describe habits and routines",
+        "To talk about past events",
+        "To describe future plans"
+      ],
+      correctAnswer: 1
+    },
+    {
+      questionText: "She _____ to work every morning.",
+      options: [
+        "walk",
+        "walks",
+        "walking",
+        "walked"
+      ],
+      correctAnswer: 1
+    },
+    {
+      questionText: "They _____ in London.",
+      options: [
+        "lives",
+        "living",
+        "live",
+        "lived"
+      ],
+      correctAnswer: 2
+    },
+    {
+      questionText: "What is the correct negative form? 'I play tennis.'",
+      options: [
+        "I not play tennis",
+        "I don't plays tennis",
+        "I doesn't play tennis",
+        "I don't play tennis"
+      ],
+      correctAnswer: 3
+    },
+    {
+      questionText: "_____ he speak English?",
+      options: [
+        "Do",
+        "Does",
+        "Is",
+        "Are"
+      ],
+      correctAnswer: 1
+    }
+  ];
 
-        .logo {
-            position: absolute;
-            left: 1rem;
-            width: 3.5rem;
-            height: 3.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+  const handleAnswerClick = (selectedOption) => {
+    const isCorrect = selectedOption === questions[currentQuestion].correctAnswer;
+    
+    if (isCorrect) {
+      setScore(score + 1);
+    }
 
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
+    setUserAnswers([...userAnswers, {
+      question: currentQuestion,
+      selected: selectedOption,
+      correct: isCorrect
+    }]);
 
-        .header-content {
-            text-align: center;
-            padding: 0 4rem;
-        }
+    if (currentQuestion + 1 < questions.length) {
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      setShowScore(true);
+    }
+  };
 
-        .header-content h1 {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            margin-bottom: 0.5rem;
-        }
+  const resetQuiz = () => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowScore(false);
+    setUserAnswers([]);
+  };
 
-        .back-button {
-            position: absolute;
-            right: 1rem;
-            background-color: white;
-            color: #4b0082;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
+  return (
+    <div className="min-h-screen bg-gray-100 py-8">
+      <div className="max-w-2xl mx-auto px-4">
+        <Card className="bg-white rounded-lg shadow-lg">
+          <CardContent className="p-6">
+            {showScore ? (
+              <div className="text-center">
+                <h2 className="text-2xl font-bold mb-4">Quiz Complete!</h2>
+                <p className="text-xl mb-4">Your score: {score} out of {questions.length}</p>
+                <p className="text-lg mb-4">Percentage: {Math.round((score / questions.length) * 100)}%</p>
+                <button
+                  onClick={resetQuiz}
+                  className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors"
+                >
+                  Try Again
+                </button>
+              </div>
+            ) : (
+              <>
+                <div className="mb-6">
+                  <div className="flex justify-between items-center mb-4">
+                    <h2 className="text-xl font-bold">Question {currentQuestion + 1}/{questions.length}</h2>
+                    <span className="text-gray-600">Score: {score}</span>
+                  </div>
+                  <p className="text-lg mb-4">{questions[currentQuestion].questionText}</p>
+                </div>
+                <div className="space-y-3">
+                  {questions[currentQuestion].options.map((option, index) => (
+                    <button
+                      key={index}
+                      onClick={() => handleAnswerClick(index)}
+                      className="w-full text-left p-4 rounded-lg border border-gray-300 hover:bg-purple-50 hover:border-purple-300 transition-colors"
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+};
 
-        .back-button:hover {
-            background-color: #f0f0f0;
-            transform: translateY(-2px);
-        }
-
-        footer {
-            background-color: #4b0082;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-            margin-top: auto;
-        }
-
-        footer p {
-            margin: 0.3rem 0;
-            font-size: clamp(0.8rem, 1.5vw, 1rem);
-        }
-
-        #quiz-container {
-            flex: 1;
-            padding: 2rem 1rem;
-            max-width: 800px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        /* Enhanced Mobile Styles */
-        @media (max-width: 768px) {
-            .header-content {
-                padding: 0 3rem;
-            }
-
-            .logo {
-                width: 2.5rem;
-                height: 2.5rem;
-            }
-
-            .back-button {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 0.8rem;
-            }
-
-            .header-content {
-                padding: 0 2.5rem;
-            }
-
-            .logo {
-                width: 2rem;
-                height: 2rem;
-                left: 0.8rem;
-            }
-
-            .back-button {
-                padding: 0.3rem 0.6rem;
-                font-size: 0.8rem;
-                right: 0.8rem;
-            }
-        }
-
-        /* Touch Device Optimizations */
-        @media (hover: none) {
-            .back-button:active {
-                background-color: #f0f0f0;
-            }
-        }
-
-        /* Landscape Mode Optimization */
-        @media (max-height: 500px) and (orientation: landscape) {
-            header {
-                padding: 0.5rem;
-            }
-
-            .header-content h1 {
-                font-size: clamp(1.2rem, 3vw, 1.8rem);
-            }
-
-            footer {
-                padding: 0.5rem;
-            }
-
-            footer p {
-                font-size: 0.8rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <img src="../logo.png" alt="BeSmart Logo">
-        </div>
-        <div class="header-content">
-            <h1>Simple Present Quiz</h1>
-        </div>
-        <a href="../A1-1.html" class="back-button">Back to Quiz List</a>
-    </header>
-
-    <div id="quiz-container"></div>
-
-    <footer>
-        <p>Made by BeSmart Ezzahra</p>
-        <p>Contact: 58, Avenue Habib Bourguiba, Ben Arous, Ezzahra, Tunisia</p>
-        <p>Phone: +216 99 739 144</p>
-    </footer>
-
-    <!-- Updated path for React component -->
-    <script src="../../React-js-components/quiz-component.js"></script>
-</body>
-</html>
+export default SimplePresent;
