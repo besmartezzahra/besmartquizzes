@@ -69,6 +69,51 @@
         footer p {
             margin: 5px 0;
         }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .main-content h2 {
+                font-size: 1.5em;
+            }
+            .category {
+                width: 150px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 15px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            header p {
+                font-size: 0.9em;
+            }
+            .main-content {
+                padding: 15px;
+            }
+            .categories {
+                gap: 10px;
+            }
+            .category {
+                width: 120px;
+                padding: 10px;
+            }
+            .category a {
+                font-size: 1em;
+            }
+            footer {
+                padding: 15px;
+            }
+            footer p {
+                font-size: 0.9em;
+            }
+        }
     </style>
 </head>
 <body>
