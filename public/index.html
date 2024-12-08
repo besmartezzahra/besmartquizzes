@@ -3,190 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Quiz Site - BeSmart Ezzahra</title>
+    <title>BeSmart English Quiz</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: #f5f5f5;
-            height: 100vh;
+            background-color: #f7f7f7;
         }
-
         header {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-            background-color: #4caf50;
+            background-color: #4b0082;
             color: white;
+            padding: 20px;
+            text-align: center;
         }
-
-        header img {
-            width: 50px;
-            height: auto;
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
         }
-
-        nav {
-            display: flex;
-            gap: 15px;
+        header p {
+            margin: 5px 0;
         }
-
-        nav a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            transition: color 0.3s;
+        .main-content {
+            padding: 30px;
+            text-align: center;
         }
-
-        nav a:hover {
-            color: #ffeb3b;
+        .main-content h2 {
+            color: #4b0082;
+            font-size: 2em;
+            margin-bottom: 20px;
         }
-
-        .container {
+        .categories {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-            padding: 10px;
-            max-width: 90%;
+            margin-bottom: 50px; /* Spacer to fit content in view */
         }
-
         .category {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 15px 20px;
-            border-radius: 10px;
+            border-radius: 8px;
+            width: 200px;
+            padding: 20px;
             text-align: center;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: transform 0.2s, background-color 0.2s;
-            cursor: pointer;
-            width: 120px;
-            height: 50px;
+            transition: transform 0.2s, background-color 0.2s, color 0.2s;
         }
+        .category a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .category.level-a1 { background-color: #add8e6; } /* Light Blue */
+        .category.level-a2 { background-color: #90ee90; } /* Light Green */
+        .category.level-b2 { background-color: #f0e68c; } /* Khaki - softer on the eyes */
+        .category.level-c1 { background-color: #ffa07a; } /* Light Salmon */
+        .category.level-c2 { background-color: #d8bfd8; } /* Thistle */
 
         .category:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            filter: brightness(90%);
         }
-
         .category:active {
-            transform: scale(0.9);
+            transform: scale(0.98);
+            filter: brightness(80%);
         }
-
-        /* Level Colors */
-        .level-a1 { background-color: #8ecae6; }
-        .level-a1:hover { background-color: #219ebc; }
-        .level-a1:active { background-color: #023047; }
-
-        .level-a2 { background-color: #a7c957; }
-        .level-a2:hover { background-color: #6a994e; }
-        .level-a2:active { background-color: #386641; }
-
-        .level-b2 { background-color: #f0e68c; }
-        .level-b2:hover { background-color: #e3d87e; }
-        .level-b2:active { background-color: #c8bc66; }
-
-        .level-c1 { background-color: #ffb703; }
-        .level-c1:hover { background-color: #fb8500; }
-        .level-c1:active { background-color: #d97706; }
-
-        .level-c2 { background-color: #ffadad; }
-        .level-c2:hover { background-color: #ff6f6f; }
-        .level-c2:active { background-color: #d62828; }
-
-        .spacer {
-            height: 20px;
-            width: 100%;
-        }
-
         footer {
-            width: 100%;
-            padding: 10px;
-            background-color: #4caf50;
+            background-color: #4b0082;
             color: white;
+            padding: 20px;
             text-align: center;
-            position: absolute;
-            bottom: 0;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 5px 0;
         }
 
-        footer a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        footer a:hover {
-            color: #ffeb3b;
-        }
-
-        @media (max-width: 600px) {
-            .category {
-                font-size: 16px;
-                width: 100px;
-                height: 45px;
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
             }
-            .spacer {
-                height: 15px;
+            .main-content h2 {
+                font-size: 1.5em;
+            }
+            .category {
+                width: 150px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 15px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+            header p {
+                font-size: 0.9em;
+            }
+            .main-content {
+                padding: 15px;
+            }
+            .categories {
+                gap: 10px;
+            }
+            .category {
+                width: 120px;
+                padding: 10px;
+            }
+            .category a {
+                font-size: 1em;
+            }
+            footer {
+                padding: 15px;
+            }
+            footer p {
+                font-size: 0.9em;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div>
-            <img src="logo.png" alt="Logo">
-        </div>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/about.html">About</a>
-            <a href="/contact.html">Contact</a>
-        </nav>
+        <h1>BeSmart English Quiz</h1>
+        <p>Master English with our level-based quizzes!</p>
     </header>
 
-    <div class="container">
-        <a href="/A1-1.html" class="category level-a1">A1-1</a>
-        <a href="/A1-2.html" class="category level-a1">A1-2</a>
-        <a href="/A1-3.html" class="category level-a1">A1-3</a>
-        <a href="/A1-4.html" class="category level-a1">A1-4</a>
-        <div class="spacer"></div>
-
-        <a href="/A2-1.html" class="category level-a2">A2-1</a>
-        <a href="/A2-2.html" class="category level-a2">A2-2</a>
-        <a href="/A2-3.html" class="category level-a2">A2-3</a>
-        <a href="/A2-4.html" class="category level-a2">A2-4</a>
-        <div class="spacer"></div>
-
-        <a href="/B2-1.html" class="category level-b2">B2-1</a>
-        <a href="/B2-2.html" class="category level-b2">B2-2</a>
-        <a href="/B2-3.html" class="category level-b2">B2-3</a>
-        <a href="/B2-4.html" class="category level-b2">B2-4</a>
-        <div class="spacer"></div>
-
-        <a href="/C1-1.html" class="category level-c1">C1-1</a>
-        <a href="/C1-2.html" class="category level-c1">C1-2</a>
-        <a href="/C1-3.html" class="category level-c1">C1-3</a>
-        <a href="/C1-4.html" class="category level-c1">C1-4</a>
-        <div class="spacer"></div>
-
-        <a href="/C2-1.html" class="category level-c2">C2-1</a>
-        <a href="/C2-2.html" class="category level-c2">C2-2</a>
-        <a href="/C2-3.html" class="category level-c2">C2-3</a>
-        <a href="/C2-4.html" class="category level-c2">C2-4</a>
+    <div class="main-content">
+        <h2>Choose Your Level</h2>
+        <div class="categories">
+            <div class="category level-a1"><a href="/A1-1.html">A1-1</a></div>
+            <div class="category level-a1"><a href="/A1-2.html">A1-2</a></div>
+            <div class="category level-a1"><a href="/A1-3.html">A1-3</a></div>
+            <div class="category level-a1"><a href="/A1-4.html">A1-4</a></div>
+        </div>
+        <div style="height: 50px;"></div>
+        <div class="categories">
+            <div class="category level-a2"><a href="/A2-1.html">A2-1</a></div>
+            <div class="category level-a2"><a href="/A2-2.html">A2-2</a></div>
+            <div class="category level-a2"><a href="/A2-3.html">A2-3</a></div>
+            <div class="category level-a2"><a href="/A2-4.html">A2-4</a></div>
+        </div>
+        <div style="height: 50px;"></div>
+        <div class="categories">
+            <div class="category level-b2"><a href="/B2-1.html">B2-1</a></div>
+            <div class="category level-b2"><a href="/B2-2.html">B2-2</a></div>
+            <div class="category level-b2"><a href="/B2-3.html">B2-3</a></div>
+            <div class="category level-b2"><a href="/B2-4.html">B2-4</a></div>
+        </div>
+        <div style="height: 50px;"></div>
+        <div class="categories">
+            <div class="category level-c1"><a href="/C1-1.html">C1-1</a></div>
+            <div class="category level-c1"><a href="/C1-2.html">C1-2</a></div>
+            <div class="category level-c1"><a href="/C1-3.html">C1-3</a></div>
+            <div class="category level-c1"><a href="/C1-4.html">C1-4</a></div>
+        </div>
+        <div style="height: 50px;"></div>
+        <div class="categories">
+            <div class="category level-c2"><a href="/C2-1.html">C2-1</a></div>
+            <div class="category level-c2"><a href="/C2-2.html">C2-2</a></div>
+            <div class="category level-c2"><a href="/C2-3.html">C2-3</a></div>
+            <div class="category level-c2"><a href="/C2-4.html">C2-4</a></div>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 BeSmart Ezzahra | <a href="/privacy.html">Privacy Policy</a> | <a href="/terms.html">Terms of Service</a></p>
+        <p>Made by BeSmart Ezzahra</p>
+        <p>Contact: 58, Avenue Habib Bourguiba, Ben Arous, Ezzahra, Tunisia</p>
+        <p>Phone: +216 99 739 144</p>
     </footer>
 </body>
 </html>
