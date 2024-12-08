@@ -41,23 +41,32 @@
             margin-bottom: 50px; /* Spacer to fit content in view */
         }
         .category {
-            background-color: white;
-            border: 1px solid #ddd;
             border-radius: 8px;
             width: 200px;
             padding: 20px;
             text-align: center;
-            transition: transform 0.2s;
-        }
-        .category:hover {
-            transform: scale(1.05);
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, background-color 0.2s, color 0.2s;
         }
         .category a {
             text-decoration: none;
-            color: #4b0082;
+            color: white;
             font-size: 1.2em;
             font-weight: bold;
+        }
+        .category.level-a1 { background-color: #add8e6; } /* Light Blue */
+        .category.level-a2 { background-color: #90ee90; } /* Light Green */
+        .category.level-b2 { background-color: #ffd700; } /* Gold */
+        .category.level-c1 { background-color: #ffa07a; } /* Light Salmon */
+        .category.level-c2 { background-color: #d8bfd8; } /* Thistle */
+
+        .category:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            filter: brightness(90%);
+        }
+        .category:active {
+            transform: scale(0.98);
+            filter: brightness(80%);
         }
         footer {
             background-color: #4b0082;
@@ -125,38 +134,38 @@
     <div class="main-content">
         <h2>Choose Your Level</h2>
         <div class="categories">
-            <div class="category"><a href="/A1-1.html">A1-1</a></div>
-            <div class="category"><a href="/A1-2.html">A1-2</a></div>
-            <div class="category"><a href="/A1-3.html">A1-3</a></div>
-            <div class="category"><a href="/A1-4.html">A1-4</a></div>
+            <div class="category level-a1"><a href="/A1-1.html">A1-1</a></div>
+            <div class="category level-a1"><a href="/A1-2.html">A1-2</a></div>
+            <div class="category level-a1"><a href="/A1-3.html">A1-3</a></div>
+            <div class="category level-a1"><a href="/A1-4.html">A1-4</a></div>
         </div>
         <div style="height: 50px;"></div>
         <div class="categories">
-            <div class="category"><a href="/A2-1.html">A2-1</a></div>
-            <div class="category"><a href="/A2-2.html">A2-2</a></div>
-            <div class="category"><a href="/A2-3.html">A2-3</a></div>
-            <div class="category"><a href="/A2-4.html">A2-4</a></div>
+            <div class="category level-a2"><a href="/A2-1.html">A2-1</a></div>
+            <div class="category level-a2"><a href="/A2-2.html">A2-2</a></div>
+            <div class="category level-a2"><a href="/A2-3.html">A2-3</a></div>
+            <div class="category level-a2"><a href="/A2-4.html">A2-4</a></div>
         </div>
         <div style="height: 50px;"></div>
         <div class="categories">
-            <div class="category"><a href="/B2-1.html">B2-1</a></div>
-            <div class="category"><a href="/B2-2.html">B2-2</a></div>
-            <div class="category"><a href="/B2-3.html">B2-3</a></div>
-            <div class="category"><a href="/B2-4.html">B2-4</a></div>
+            <div class="category level-b2"><a href="/B2-1.html">B2-1</a></div>
+            <div class="category level-b2"><a href="/B2-2.html">B2-2</a></div>
+            <div class="category level-b2"><a href="/B2-3.html">B2-3</a></div>
+            <div class="category level-b2"><a href="/B2-4.html">B2-4</a></div>
         </div>
         <div style="height: 50px;"></div>
         <div class="categories">
-            <div class="category"><a href="/C1-1.html">C1-1</a></div>
-            <div class="category"><a href="/C1-2.html">C1-2</a></div>
-            <div class="category"><a href="/C1-3.html">C1-3</a></div>
-            <div class="category"><a href="/C1-4.html">C1-4</a></div>
+            <div class="category level-c1"><a href="/C1-1.html">C1-1</a></div>
+            <div class="category level-c1"><a href="/C1-2.html">C1-2</a></div>
+            <div class="category level-c1"><a href="/C1-3.html">C1-3</a></div>
+            <div class="category level-c1"><a href="/C1-4.html">C1-4</a></div>
         </div>
         <div style="height: 50px;"></div>
         <div class="categories">
-            <div class="category"><a href="/C2-1.html">C2-1</a></div>
-            <div class="category"><a href="/C2-2.html">C2-2</a></div>
-            <div class="category"><a href="/C2-3.html">C2-3</a></div>
-            <div class="category"><a href="/C2-4.html">C2-4</a></div>
+            <div class="category level-c2"><a href="/C2-1.html">C2-1</a></div>
+            <div class="category level-c2"><a href="/C2-2.html">C2-2</a></div>
+            <div class="category level-c2"><a href="/C2-3.html">C2-3</a></div>
+            <div class="category level-c2"><a href="/C2-4.html">C2-4</a></div>
         </div>
     </div>
 
