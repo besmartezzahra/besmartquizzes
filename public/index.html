@@ -3,75 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website Title</title>
-    <link rel="stylesheet" href="style.css">
+    <title>BeSmart English Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+        header {
+            background-color: #4b0082;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            margin: 5px 0;
+        }
+        .main-content {
+            padding: 30px;
+            text-align: center;
+        }
+        .main-content h2 {
+            color: #4b0082;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .category {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: 200px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .category:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .category a {
+            text-decoration: none;
+            color: #4b0082;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #4b0082;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">
-                <img src="logo.png" alt="Your Logo">
-            </div>
-            <ul class="nav-links">
-                <li><a href="#">Particuliers</a></li>
-                <li><a href="#">À propos</a></li>
-                <li><a href="#">Blog</a></li>
-            </ul>
-            <div class="nav-icons">
-                <a href="#"><img src="language-icon.png" alt="Language"></a>
-                <a href="#"><img src="account-icon.png" alt="Account"></a>
-            </div>
-        </nav>
+        <h1>BeSmart English Quiz</h1>
+        <p>Master English with our level-based quizzes!</p>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>Réalisez vos projets, avec nous</h1>
-            <p>Votre sous-titre ou description ici</p>
-            <a href="#" class="cta-button">Créer mon compte</a>
-        </section>
-
-        <section class="solutions">
-            <h2>3 solutions adaptées à vos besoins</h2>
-            <div class="solution">
-                <img src="solution1.png" alt="Solution 1">
-                <h3>Solution 1</h3>
-                <p>Description de la solution 1</p>
+    <div class="main-content">
+        <h2>Choose Your Level</h2>
+        <div class="categories">
+            <div class="category">
+                <a href="/A1-1.html">A1-1</a>
             </div>
-            <div class="solution">
-                <img src="solution2.png" alt="Solution 2">
-                <h3>Solution 2</h3>
-                <p>Description de la solution 2</p>
+            <div class="category">
+                <a href="/A1-2.html">A1-2</a>
             </div>
-            <div class="solution">
-                <img src="solution3.png" alt="Solution 3">
-                <h3>Solution 3</h3>
-                <p>Description de la solution 3</p>
+            <div class="category">
+                <a href="/A1-3.html">A1-3</a>
             </div>
-            <a href="#" class="cta-button">Découvrez nos 3 solutions</a>
-        </section>
-    </main>
+            <div class="category">
+                <a href="/A1-4.html">A1-4</a>
+            </div>
+            <!-- Add more levels as needed -->
+        </div>
+    </div>
 
     <footer>
-        <div class="footer-links">
-            <a href="#">Formations CPF</a>
-            <a href="#">Tariffs</a>
-            <a href="#">Perfectionnement en anglais pro</a>
-        </div>
-        <div class="social-icons">
-            <a href="#"><img src="facebook.png" alt="Facebook"></a>
-            <a href="#"><img src="twitter.png" alt="Twitter"></a>
-            <a href="#"><img src="linkedin.png" alt="LinkedIn"></a>
-        </div>
-        <div class="language-select">
-            <select>
-                <option>English</option>
-                <option>Français</option>
-            </select>
-        </div>
-        <div class="legal">
-            <p>&copy; 2023 Your Website. All rights reserved.</p>
-        </div>
+        <p>Made by BeSmart Ezzahra</p>
+        <p>Contact: 58, Avenue Habib Bourguiba, Ben Arous, Ezzahra, Tunisia</p>
+        <p>Phone: +216 99 739 144</p>
     </footer>
 </body>
 </html>
